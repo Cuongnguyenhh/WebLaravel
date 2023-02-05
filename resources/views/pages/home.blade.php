@@ -1,5 +1,5 @@
-@extends('welcome')
-@section('content')
+<!-- @extends('welcome')
+@section('content') -->
 
 <div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Features Items</h2>
@@ -543,4 +543,4 @@
 						</div>
 					</div><!--/recommended_items-->
 
-@endsection
+<!-- @endsection -->

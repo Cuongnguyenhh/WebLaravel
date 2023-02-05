@@ -9,4 +9,7 @@ class HomeController extends Controller
     public function index(){
         return view('pages.home');
     }
+    public function shop(){
+        return view('pages.shop');
+    }
 }
