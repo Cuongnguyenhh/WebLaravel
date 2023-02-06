@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryProductController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,3 +29,7 @@ Route::post('/admin_dashboard',[AdminController::class,'dashboard']);
 Route::get('/logout',[AdminController::class,'logout'] );
 
 
+//Category Route
+Route::get('/add-category-product',[CategoryProductController::class, 'showAddcategoryProduct']);
+Route::get('/all-category-product',[CategoryProductController::class, 'showAllCategoryProduct']);
+Route::post('/save_category_product',[CategoryProductController::class, 'addCategoryProduct']);

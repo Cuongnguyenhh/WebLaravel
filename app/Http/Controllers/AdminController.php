@@ -9,8 +9,11 @@ use function Ramsey\Uuid\v1;
 use DB;
 // use App\Http\Request;
 use Illuminate\Contracts\Session\Session as SessionSession;
+use Illuminate\Support\Facades\Auth;
 use Session;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session as FacadesSession;
+
 session_start();
 
 class AdminController extends Controller
@@ -28,7 +31,6 @@ public function dashboard(Request $request){
 
     $result = DB::table('tbl_admin')->where('email',$admin_email)->where('password',$admin_password)->first();
     if($result){
-        
         Session::put('name',$result->name);
         Session::put('id',$result->id);
         return Redirect::to('/dashboard');
@@ -39,9 +41,8 @@ public function dashboard(Request $request){
     }
 }
 public function logout(){
-    Session::put('name',null);
-        Session::put('id',null);
-        return Redirect::to('/admin_login');
+        Session::flush();
+        return Redirect::to('/admin_login')->withInput();
 }
     
 }

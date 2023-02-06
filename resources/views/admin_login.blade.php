@@ -33,7 +33,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<h2>Sign In Now</h2>
 	<?php $message = Session::get('message');
 			if($message){
-				echo '<span class = "error-message">'.$message.'</span>';
+				echo '<span class="alert alert-success">'.$message.'</span>';
 				Session::put('message',null);
 			}
 	?>
