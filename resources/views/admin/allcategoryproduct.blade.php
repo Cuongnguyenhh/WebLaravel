@@ -44,14 +44,25 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <?php
+          $count = 0;
+          foreach($showProduct as $product){
+            $show= null;
+            if($product->category_status == 0){
+              $show = 'Show';
+            }else{
+              $show = 'Hide';
+            }
+            echo '<tr>
             <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-            <td>Idrawfast prototype design prototype design prototype design prototype design prototype design</td>
-            <td><span class="text-ellipsis">Show/Hide</span></td>
-            <td><span class="text-ellipsis">{00/00/0000}</span></td>
+            <td>'.$product->category_name.'</td>
+            <td><span class="text-ellipsis">'.$show.'</span></td>
+            <td><span class="text-ellipsis">'.$product->created_at.'</span></td>
             <td>
               <a href="" class="active" ui-toggle-class=""><i class="fa fa-pencil-square-o text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
-            </td>
+            </td>';
+          }
+           ?>
           </tr>
         </tbody>
       </table>

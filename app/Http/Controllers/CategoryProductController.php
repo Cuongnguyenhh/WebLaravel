@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use DB;
 use Session;
 session_start();
+use Illuminate\Support\Collection;
 use Illuminate\Http\Client\Request as ClientRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -18,9 +19,7 @@ class CategoryProductController extends Controller
     public function showAddcategoryProduct(){
         return view('admin.addcategoryproduct');
     }
-    public function showAllCategoryProduct(){
-        return view('admin.allcategoryproduct');
-    }
+    
        
     public function addCategoryProduct(Request $request){
         $data = array();
@@ -34,7 +33,9 @@ class CategoryProductController extends Controller
         return Redirect::to('/add-category-product');
         
     }
-    public function allCategoryProduct(){
-        echo 'hello';
+    public function showAllCategoryProduct(){
+        $product = array();
+        $showProduct = DB::table('tbl_category_product')->select('*')->get();
+        return view('admin.allcategoryproduct',['showProduct'=>$showProduct]);
     }
 }
